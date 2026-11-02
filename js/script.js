@@ -1,27 +1,67 @@
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('Cotlands website loaded successfully!');
+document.addEventListener("DOMContentLoaded", () => {
+  // FAQ accordion
+  document.querySelectorAll(".faq-question").forEach((button) => {
+    button.setAttribute("aria-expanded", "false");
 
-    // Add basic form submission prevention and feedback
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
-        form.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent actual form submission
-            // Get the form's action or ID for context
-            const formId = this.id || 'form';
-            alert(`Thank you! Your ${formId} has been submitted. We will get back to you soon.`);
-            // Optionally, clear the form
-            this.reset();
-        });
+    button.addEventListener("click", () => {
+      const answer = button.nextElementSibling;
+      const isOpen = button.getAttribute("aria-expanded") === "true";
+
+      button.setAttribute("aria-expanded", String(!isOpen));
+      if (answer) answer.hidden = isOpen;
+
+      const icon = button.querySelector("span");
+      if (icon) icon.textContent = isOpen ? "+" : "−";
+    });
+  });
+
+  // Programme search
+  const search = document.querySelector("#programmeSearch");
+  const cards = [...document.querySelectorAll("[data-programme]")];
+  const count = document.querySelector("#programmeCount");
+
+  function filterProgrammes() {
+    if (!search) return;
+
+    const term = search.value.trim().toLowerCase();
+    let visible = 0;
+
+    cards.forEach((card) => {
+      const matches = card.textContent.toLowerCase().includes(term);
+      card.hidden = !matches;
+      if (matches) visible++;
     });
 
-    const anchorLinks = document.querySelectorAll('a[href^="#"]');
-    anchorLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
+    if (count) {
+      count.textContent = `${visible} programme${visible === 1 ? "" : "s"} found`;
+    }
+  }
+
+  if (search) {
+    search.addEventListener("input", filterProgrammes);
+    filterProgrammes();
+  }
+
+  // Client-side validation before opening the visitor's email app
+  ["enquiryForm", "contactForm"].forEach((formId) => {
+    const form = document.getElementById(formId);
+    if (!form) return;
+
+    form.addEventListener("submit", (event) => {
+      const status = form.querySelector('[role="status"]');
+
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        form.reportValidity();
+        if (status) status.textContent =
+          "Please check the highlighted fields and complete the form.";
+        return;
+      }
+
+      if (status) {
+        status.textContent =
+          "Your email app should open with the message prepared. Please review and send it there.";
+      }
     });
-});
+  });
+});s
