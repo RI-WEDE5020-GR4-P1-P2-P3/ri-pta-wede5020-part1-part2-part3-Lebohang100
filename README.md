@@ -385,4 +385,4 @@ forms, FAQ functionality, donation interaction and mobile navigation.
   image alt text, plus `robots.txt` and `sitemap.xml`.
 - Added focus styles and tested the layout at mobile widths.
 - The forms use `mailto:` and are a prototype; they do not send email
-  automatically from the website or store form data.
+  automatically from the website or store form data.ss

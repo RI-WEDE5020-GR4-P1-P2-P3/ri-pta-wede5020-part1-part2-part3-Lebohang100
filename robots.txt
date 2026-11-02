@@ -1,0 +1,7 @@
+User-agent: *
+ Allow: /
+
+Sitemap: https://boitumelo-cotlands.netlify.app: *
+Allow: /
+
+Sitemap: https://boitumelo-cotlands.netlify.app
