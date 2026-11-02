@@ -19,6 +19,7 @@
                     <li><a href="get-involved.html">Get Involved</a></li>
                     <li><a href="contact.html" class="active">Contact</a></li>
                     <li><a href="resources.html">Resources</a></li>
+                    <li><a href="enquiry.html">Enquiries</a></li>
                 </ul>
             </nav>
         </div>
@@ -37,21 +38,31 @@
                 <div class="contact-grid">
                     <div class="contact-form">
                         <h3>Send Us a Message</h3>
-                        <form action="#" method="post">
-                            <label for="c-name">Your Name</label>
-                            <input type="text" id="c-name" name="name" required>
-                            
-                            <label for="c-email">Your Email</label>
-                            <input type="email" id="c-email" name="email" required>
+                        <form id="contactForm" action="mailto:info@cotlands.org.za"
+      method="post" enctype="text/plain" novalidate>
+  <label for="contactName">Your name</label>
+  <input id="contactName" name="name" type="text"
+         minlength="2" maxlength="80" required>
 
-                            <label for="c-subject">Subject</label>
-                            <input type="text" id="c-subject" name="subject">
+  <label for="contactEmail">Your email</label>
+  <input id="contactEmail" name="email" type="email" required>
 
-                            <label for="c-message">Message</label>
-                            <textarea id="c-message" name="message" rows="5" required></textarea>
+  <label for="contactSubject">Message type</label>
+  <select id="contactSubject" name="subject" required>
+    <option value="">Choose a message type</option>
+    <option>General question</option>
+    <option>Feedback</option>
+    <option>Media enquiry</option>
+    <option>Other</option>
+  </select>
 
-                            <button type="submit" class="btn btn-primary">Send Message</button>
-                        </form>
+  <label for="contactMessage">Message</label>
+  <textarea id="contactMessage" name="message"
+            minlength="10" maxlength="1500" required></textarea>
+
+  <p id="contactStatus" role="status" aria-live="polite"></p>
+  <button type="submit">Send message</button>
+</form>
                     </div>
                     <div class="contact-info">
                         <h3>Our Locations</h3>
@@ -64,7 +75,7 @@
                             <p>456 Long Street,<br>Cape Town, 8001</p>
                         </div>
                         <div class="contact-details">
-                            <p><strong>Phone:</strong> +27 (0)11 123 4567</p>
+                            <p><strong>Phone:</strong> +27 (0)11 683 7200</p>
                             <p><strong>Email:</strong> info@cotlands.org.za</p>
                         </div>
                         <div class="social-links">

@@ -1,0 +1,36 @@
+<main class="container">
+  <h1>Enquire about Cotlands</h1>
+  <p>Send an enquiry about our programmes, volunteering or partnership opportunities.</p>
+
+  <form id="enquiryForm" action="mailto:info@cotlands.org.za"
+        method="post" enctype="text/plain" novalidate>
+    <label for="enquiryName">Full name</label>
+    <input id="enquiryName" name="name" type="text"
+           minlength="2" maxlength="80" required>
+
+    <label for="enquiryEmail">Email address</label>
+    <input id="enquiryEmail" name="email" type="email" required>
+
+    <label for="enquiryPhone">Phone (optional)</label>
+    <input id="enquiryPhone" name="phone" type="tel"
+           pattern="[0-9+() -]{7,20}"
+           title="Enter a phone number using 7–20 digits or phone symbols.">
+
+    <label for="enquiryType">What are you enquiring about?</label>
+    <select id="enquiryType" name="enquiryType" required>
+      <option value="">Choose an option</option>
+      <option>Playgroups</option>
+      <option>Toy libraries</option>
+      <option>Volunteering</option>
+      <option>Partnership</option>
+      <option>Other</option>
+    </select>
+
+    <label for="enquiryMessage">Your message</label>
+    <textarea id="enquiryMessage" name="message"
+              minlength="10" maxlength="1000" required></textarea>
+
+    <p id="enquiryStatus" role="status" aria-live="polite"></p>
+    <button type="submit">Prepare enquiry</button>
+  </form>
+</main>
