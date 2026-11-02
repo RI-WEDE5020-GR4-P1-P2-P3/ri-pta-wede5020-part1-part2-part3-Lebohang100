@@ -1,5 +1,11 @@
 # Cotlands Website Redesign
 
+## Changelog.md
+
+-Corrected the stylesheet link on all pages so it matches the actual CSS filename and folder.
+-Updated the navigation styling to display horizonitally on desktop and adjust for narrow screens.
+-Tested the pages to confirm the stylesheet loads and navigation links remain usable.
+
 ## WEDE5020 – Website Project
 
 This project is a redesigned website prototype for Cotlands, a South African
@@ -365,3 +371,18 @@ HTML5, CSS3 and JavaScript have been used.
 
 The website includes responsive layouts, multiple pages,
 forms, FAQ functionality, donation interaction and mobile navigation.
+
+## Part 3 changelog
+
+- Reviewed the Part 2 website and standardised HTML, CSS and JavaScript
+  filenames and links to reduce broken-page errors.
+- Added a separate enquiry page for programme, volunteer and partnership
+  enquiries; retained the contact page for general messages.
+- Added required-field, email, text-length and phone-format validation,
+  with JavaScript feedback for invalid forms.
+- Added an accessible FAQ accordion and a live programme search/filter.
+- Added unique page titles and meta descriptions, descriptive headings and
+  image alt text, plus `robots.txt` and `sitemap.xml`.
+- Added focus styles and tested the layout at mobile widths.
+- The forms use `mailto:` and are a prototype; they do not send email
+  automatically from the website or store form data.
